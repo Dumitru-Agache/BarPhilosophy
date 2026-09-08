@@ -1826,30 +1826,40 @@ a.contact-detail:hover{
 
 }
 
-.footer-logo{
 
-    position:relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width:140px;
-    margin-bottom:20px;
+.footer-brand{
+    width:100%;
 
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+
+    text-align:center;
+    gap:18px;
 }
-.footer-logo img{
-    display: block;
-    margin: 0 auto;
+
+.footer-logo{
+    position:static;
+
+    display:block;
+    width:140px;
+
+    margin:0 auto;
 }
 
 .footer-tagline{
-    position:absolute;
-    text-align: center;
-    right: 38%;
+    position:static;
+
+    width:100%;
+    max-width:500px;
+
+    margin:0 auto;
+
+    text-align:center;
+
     color:rgba(255,255,255,.7);
     font-size:1rem;
     line-height:1.7;
-    max-width:500px;
-
 }
 
 .footer-nav{
@@ -2164,13 +2174,15 @@ a.contact-detail:hover{
     }
 
     .hero h1{
-        max-width:100%;
+    max-width:100%;
+    margin-bottom:18px;
 
-        margin-bottom:18px;
+    font-size:clamp(2.4rem, 11vw, 3.4rem);
+    line-height:.92;
+    letter-spacing:1px;
 
-        font-size:clamp(3rem, 13.5vw, 4.2rem);
-        line-height:.92;
-    }
+    white-space:nowrap;
+}
 
     .hero-subtitle{
         max-width:430px;
@@ -2769,6 +2781,16 @@ a.contact-detail:hover{
         width:40px;
         height:40px;
     }
+    .hero-content{
+    width:100%;
+    min-width:0;
+    overflow:visible;
+}
+
+.hero{
+    width:100%;
+    overflow:hidden;
+}
 
     .hero{
         min-height:100svh;
@@ -2781,9 +2803,12 @@ a.contact-detail:hover{
         background-position:66% center;
     }
 
-    .hero h1{
-        font-size:clamp(2.8rem, 14vw, 3.5rem);
-    }
+   .hero h1{
+            font-size:clamp(2.15rem, 10vw, 2.75rem);
+        line-height:.95;
+        letter-spacing:0;
+        white-space:nowrap;
+   }
 
     .hero-buttons{
         flex-direction:row;
