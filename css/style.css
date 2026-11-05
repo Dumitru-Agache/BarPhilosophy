@@ -1291,10 +1291,6 @@ background .3s ease,
 .contact-social a:hover {
     color:var(--primary-color);
 }
-.about-content h2,
-.contact-content h2 {
-    
-}
 .footer {
     background:#0f0f0f;
     border-top:1px solid rgba(255,255,255,.08);
@@ -1731,9 +1727,6 @@ background .3s ease,
 .contact-heading {
         margin-bottom:45px;
     }
-.contact-heading h2 {
-        
-    }
 .contact-info,
 .contact-form {
         padding:36px 24px;
@@ -1743,9 +1736,7 @@ background .3s ease,
         grid-template-columns:1fr;
         gap:0;
     }
-.contact-intro h3 {
-        
-    }
+
 }
 @media (max-width:900px){
 .about-content {
@@ -1787,9 +1778,6 @@ background .3s ease,
 .about-content {
         gap:45px;
     }
-.about-info h2 {
-        
-    }
 .about-swiper {
         height:480px;
         border-radius:22px;
@@ -1808,18 +1796,13 @@ background .3s ease,
 .package-card {
         padding:36px 26px;
     }
-.package-card h3 {
-        
-    }
 .impact {
         padding:90px 30px;
     }
 .impact-stats {
         grid-template-columns:1fr;
     }
-.impact h2 {
-        
-    }
+ 
 }
 @media (max-width:480px){
 .navbar {
