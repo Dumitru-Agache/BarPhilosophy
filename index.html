@@ -2,17 +2,50 @@
 <html lang="ro">
 <head>
   <meta charset="UTF-8" />
+  <script>
+    // Enable the intro before first paint; always release the page on failure.
+    if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches && !location.hash) {
+      document.documentElement.classList.add('intro-pending');
+      window.bpIntroFallback = setTimeout(function () {
+        document.documentElement.classList.remove('intro-pending', 'intro-revealing');
+      }, 7000);
+    }
+  </script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-  <title>BarPhilosophy | Mobile Bar Events</title>
+  <link rel="icon" type="image/jpeg" href="assets/favicon.jpg" />
+  <title>BarPhilosophy | Bar mobil &amp; Flair Bartending</title>
+  <meta
+  name="description"
+  content="Bar mobil, cocktailuri și show-uri de flair bartending pentru nunți, evenimente corporate și petreceri private. Cere o ofertă BarPhilosophy."
+>
+<meta property="og:type" content="website">
+<meta property="og:locale" content="ro_RO">
+<meta property="og:site_name" content="BarPhilosophy">
+
+<meta
+  property="og:title"
+  content="BarPhilosophy | Bar mobil &amp; Flair Bartending"
+>
+
+<meta
+  property="og:description"
+  content="Cocktailuri, bar mobil și flair bartending pentru evenimentul tău. Descoperă pachetele Essential, Signature și Iconic."
+>
+  <link rel="preload" as="image" href="assets/images/logo2.png" fetchpriority="high">
+  <link rel="preload" as="image" href="assets/images/hero.png" fetchpriority="high">
   <link
   rel="stylesheet"
   href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css"
 />
-<link rel="stylesheet" href="style.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&amp;family=Poppins:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
+  <div class="intro-logo" aria-hidden="true">
+    <img src="assets/images/logo2.png" alt="" fetchpriority="high">
+  </div>
   <div class="site-background"></div>
   <header class="site-header">
 <nav class="navbar">
@@ -63,6 +96,7 @@
       <div class="hero-content">
         <p class="eyebrow">Mobile Bar Events</p>
         <h1><span>Bar</span>Philosophy</h1>
+        <p class="hero-slogan" lang="en">We put <span>ART</span> in b<span>ART</span>ending.</p>
         <h2 class="hero-subtitle">
             Mai mult decât un bar.<span> O experiență.</span>
         </h2>
@@ -152,45 +186,53 @@
           <li>Consumabile și decor pentru servire</li>
         </ul>
 
-        <a href="#contact" class="service-link">Solicită o ofertă →</a>
+        <a href="#contact" class="service-link">Solicită o ofertă </a>
       </div>
 
-      <div class="service-gallery" aria-label="Galerie BarPhilosophy">
-  <figure class="service-photo service-photo-bar">
-    <img
-      src="assets/images/service-bar.png"
-      alt="Setup complet de bar mobil BarPhilosophy la un eveniment"
-    />
-  </figure>
+      <div class="service-gallery swiper service-swiper" aria-label="Galerie BarPhilosophy">
 
-  <figure class="service-photo service-photo-team-one">
-    <img
-      src="assets/images/service-team1.jpg"
-      alt="Echipa BarPhilosophy în spatele barului"
-    />
-  </figure>
+  <div class="swiper-wrapper">
 
-  <figure class="service-photo service-photo-team-two">
-    <img
-      src="assets/images/service-team2.jpg"
-      alt="Bartenderii BarPhilosophy pregătiți pentru eveniment"
-    />
-  </figure>
+    <figure class="service-photo service-photo-bar swiper-slide">
+      <img
+        src="assets/images/service-bar.png"
+        alt="Setup complet de bar mobil BarPhilosophy la un eveniment"
+      />
+    </figure>
 
-  <figure class="service-photo service-photo-team-three">
-    <img
-      src="assets/images/service-team3.jpg"
-      alt="Echipă profesionistă de bartending BarPhilosophy"
-    />
-  </figure>
+    <figure class="service-photo service-photo-team-one swiper-slide">
+      <img
+        src="assets/images/service-team1.jpg"
+        alt="Echipa BarPhilosophy în spatele barului"
+      />
+    </figure>
 
-  <figure class="service-photo service-photo-cocktails">
-    <img
-      src="assets/images/service-cocktail.jpg"
-      alt="Cocktailuri personalizate pregătite de BarPhilosophy"
-    />
-  </figure>
-</div>
+    <figure class="service-photo service-photo-team-two swiper-slide">
+      <img
+        src="assets/images/service-team2.jpg"
+        alt="Bartenderii BarPhilosophy pregătiți pentru eveniment"
+      />
+    </figure>
+
+    <figure class="service-photo service-photo-team-three swiper-slide">
+      <img
+        src="assets/images/service-team3.jpg"
+        alt="Echipă profesionistă de bartending BarPhilosophy"
+      />
+    </figure>
+
+    <figure class="service-photo service-photo-cocktails swiper-slide">
+      <img
+        src="assets/images/service-cocktail.jpg"
+        alt="Cocktailuri personalizate pregătite de BarPhilosophy"
+      />
+    </figure>
+
+  </div>
+
+  <div class="swiper-pagination"></div>
+
+      </div>
     </article>
 
     <article class="service-item service-item-reverse">
@@ -212,44 +254,47 @@
           <li>Integrare în programul evenimentului</li>
         </ul>
 
-        <a href="#pachete" class="service-link">Descoperă opțiunile →</a>
+        <a href="#pachete" class="service-link">Descoperă opțiunile </a>
       </div>
 
-      <div class="flair-gallery" aria-label="Galerie show de flair bartending">
-  <figure class="flair-photo flair-photo-main">
+      <div class="flair-gallery swiper service-swiper" aria-label="Galerie show de flair bartending">
+  <div class="swiper-wrapper">
+  <figure class="flair-photo flair-photo-main swiper-slide">
     <img
       src="assets/images/flair-main.jpg"
       alt="Show de flair bartending BarPhilosophy în fața invitaților"
     />
   </figure>
 
-  <figure class="flair-photo flair-photo-action">
+  <figure class="flair-photo flair-photo-action swiper-slide">
     <img
       src="assets/images/flair-action.jpg"
       alt="Bartender BarPhilosophy executând un moment de flair"
     />
   </figure>
 
-  <figure class="flair-photo flair-photo-party">
+  <figure class="flair-photo flair-photo-party swiper-slide">
     <img
       src="assets/images/flair-party.jpg"
       alt="Invitați care se distrează în timpul show-ului BarPhilosophy"
     />
   </figure>
 
-  <figure class="flair-photo flair-photo-bride">
+  <figure class="flair-photo flair-photo-bride swiper-slide">
     <img
       src="assets/images/flair-bride.jpg"
       alt="Mireasă implicată într-un moment interactiv BarPhilosophy"
     />
   </figure>
 
-  <figure class="flair-photo flair-photo-groom">
+  <figure class="flair-photo flair-photo-groom swiper-slide">
     <img
       src="assets/images/flair-groom.jpg"
       alt="Mire implicat într-un moment interactiv BarPhilosophy"
     />
   </figure>
+  </div>
+  <div class="swiper-pagination"></div>
 </div>
     </article>
 
@@ -277,56 +322,59 @@ Shot-uri interactive, cocktail-uri spectaculoase și energie care aduce oamenii 
       </div>
 
   <div
-  class="experience-gallery"
+  class="experience-gallery swiper service-swiper"
   aria-label="Galerie cu experiențe interactive BarPhilosophy">
-  <figure class="experience-photo experience-photo-main">
+  <div class="swiper-wrapper">
+  <figure class="experience-photo experience-photo-main swiper-slide">
     <img
       src="assets/images/experience-main.jpg"
       alt="Echipa BarPhilosophy alături de invitați la un eveniment"
     />
   </figure>
 
-  <figure class="experience-photo experience-photo-crowd">
+  <figure class="experience-photo experience-photo-crowd swiper-slide">
     <img
       src="assets/images/experience-crowd.jpg"
       alt="Invitați care se distrează alături de echipa BarPhilosophy"
     />
   </figure>
 
-  <figure class="experience-photo experience-photo-shot">
+  <figure class="experience-photo experience-photo-shot swiper-slide">
     <img
       src="assets/images/experience-shot.jpg"
       alt="Moment interactiv de servire oferit unui invitat"
     />
   </figure>
 
-  <figure class="experience-photo experience-photo-party">
+  <figure class="experience-photo experience-photo-party swiper-slide">
     <img
       src="assets/images/experience-party.jpg"
       alt="Invitați care dansează și participă la atmosfera evenimentului"
     />
   </figure>
 
-  <figure class="experience-photo experience-photo-flair">
+  <figure class="experience-photo experience-photo-flair swiper-slide">
     <img
       src="assets/images/experience-flair.jpg"
       alt="Moment spectaculos de flair bartending la eveniment"
     />
   </figure>
 
-  <figure class="experience-photo experience-photo-couple">
+  <figure class="experience-photo experience-photo-couple swiper-slide">
     <img
       src="assets/images/experience-couple.jpg"
       alt="Moment interactiv personalizat pentru miri"
     />
   </figure>
 
-  <figure class="experience-photo experience-photo-tower">
+  <figure class="experience-photo experience-photo-tower swiper-slide">
     <img
       src="assets/images/experience-tower.jpg"
       alt="Turn de shoturi și invitați care se distrează"
     />
   </figure>
+  </div>
+  <div class="swiper-pagination"></div>
 </div>
     </article>
 
@@ -411,86 +459,19 @@ Shot-uri interactive, cocktail-uri spectaculoase și energie care aduce oamenii 
     </p>
   </div>
 
-  <div class="packages-grid">
-
-    <article class="package-card">
-      <p class="package-tier">Silver</p>
-      <h3>Essential</h3>
-
-      <p class="package-description">
-        O soluție elegantă pentru evenimente restrânse și petreceri private.
-      </p>
-
-      <ul class="package-features">
-        <li class="package-highlight">
-              Serviciu complet de aprovizionare cu băuturi,
-               cu posibilitatea returnării produselor neconsumate.
-        </li>
-        <li>Bar mobil complet echipat</li>
-        <li>Bartender profesionist</li>
-        <li>Meniu de cocktailuri selectat</li>
-        <li>Consumabile pentru servire</li>
-        <li>Setup și demontare incluse</li>
-      </ul>
-
-      <a href="#contact" class="package-button">
-        Cere ofertă
-      </a>
-    </article>
-
-    <article class="package-card package-card-featured">
-      <span class="package-badge">Cel mai ales</span>
-
-      <p class="package-tier">Gold</p>
-      <h3>Signature</h3>
-
-      <p class="package-description">
-        Experiența completă BarPhilosophy pentru nunți și evenimente speciale.
-      </p>
-
-      <ul class="package-features">
-        <li class="package-highlight">
-              Serviciu complet de aprovizionare cu băuturi,
-               cu posibilitatea returnării produselor neconsumate.
-        </li>
-        <li>Tot ce este inclus în Silver</li>
-        <li>Echipă extinsă de bartenderi</li>
-        <li>Meniu de cocktailuri personalizat</li>
-        <li>Flair bartending show</li>
-        <li>Moment interactiv cu invitații</li>
-      </ul>
-
-      <a href="#contact" class="package-button">
-        Cere ofertă
-      </a>
-    </article>
-
-    <article class="package-card">
-      <p class="package-tier">Platinum</p>
-      <h3>Exclusive</h3>
-
-      <p class="package-description">
-        Un pachet premium pentru evenimente mari și experiențe fără compromisuri.
-      </p>
-
-      <ul class="package-features">
-        <li class="package-highlight">
-              Serviciu complet de aprovizionare cu băuturi,
-               cu posibilitatea returnării produselor neconsumate.
-        </li>
-        <li>Tot ce este inclus în Gold</li>
-        <li>Concept complet personalizat</li>
-        <li>Cocktailuri signature pentru eveniment</li>
-        <li>Show-uri multiple și momente speciale</li>
-        <li>Coordonare dedicată pe durata evenimentului</li>
-      </ul>
-
-      <a href="#contact" class="package-button">
-        Cere ofertă
-      </a>
-    </article>
-
-  </div>
+<div class="package-selector" aria-label="Alege pachetul" hidden>
+<button type="button" id="tab-essential" aria-controls="package-essential" data-package="essential">Essential</button>
+<button type="button" id="tab-signature" aria-controls="package-signature" data-package="signature">Signature</button>
+<button type="button" id="tab-iconic" aria-controls="package-iconic" data-package="iconic">Iconic</button>
+</div>
+<div class="packages-grid">
+<article class="package-card" id="package-essential" aria-labelledby="title-essential">
+<p class="package-tier">Bar Philosophy</p><h3 id="title-essential">Essential</h3><p class="package-tagline">Cocktailuri bune. Atmosferă faină. Fără complicații.</p><p class="package-description">Experiența cocktailurilor, într-o variantă accesibilă.</p><div class="package-pricing"><p class="package-price-label">Preț</p><p><strong>Ofertă personalizată</strong></p><p>Solicită o ofertă personalizată în funcție de numărul invitaților, locație și meniul ales.</p></div><a href="#contact" class="package-button" aria-label="Cere ofertă pentru Essential">Cere ofertă Essential</a><details class="package-details"><summary>Descoperă experiența</summary><div class="package-details-body"><p>Nu orice eveniment are nevoie de artificii. Uneori, ai nevoie doar de un bar bine pus la punct, cocktailuri apreciate de invitați și oameni care știu ce fac.</p><p>Bar Philosophy Essential este alegerea potrivită pentru cei care își doresc un bar mobil profesionist, cu un meniu de cocktailuri atent selecționat și un serviciu organizat până la ultimul detaliu.</p></div></details><details class="package-details"><summary>Ce include pachetul?</summary><div class="package-details-body"><h4>Cocktail Menu</h4><ul class="package-features"><li>Selecție de 3–4 cocktailuri populare.</li><li>Rețete standardizate, cu ingrediente atent selecționate.</li><li>Preparate realizate de personal calificat.</li></ul><h4>Mobile Bar</h4><ul class="package-features"><li>Bar mobil echipat pentru prepararea cocktailurilor.</li><li>Ustensile și echipamente profesionale.</li><li>Organizarea spațiului de servire.</li></ul><h4>Logistică</h4><ul class="package-features"><li>Transportul echipamentelor.</li><li>Montaj și demontaj.</li><li>Coordonarea serviciului în condițiile stabilite pentru eveniment.</li></ul><h4>Consultanță</h4><ul class="package-features"><li>Recomandări pentru alegerea meniului.</li><li>Adaptarea selecției de cocktailuri la tipul evenimentului.</li></ul></div></details><details class="package-details"><summary>Pentru cine este potrivit?</summary><div class="package-details-body"><p>Pentru cei care își doresc un bar mobil profesionist, cu un buget bine controlat, fără să renunțe la calitatea serviciului.</p></div></details><details class="package-details"><summary>Servicii opționale</summary><div class="package-details-body"><p>Show-ul de flair bartending, Ring Pour Experience, efectele speciale, decorul tematic și personalizările pot fi solicitate separat.</p></div></details><p class="package-signature"><span>Bar Philosophy</span>Cocktailuri bune. Oameni faini. Evenimente reușite.</p></article>
+<article class="package-card package-card-featured" id="package-signature" aria-labelledby="title-signature">
+<span class="package-badge">Pachetul principal</span><p class="package-tier">Bar Philosophy</p><h3 id="title-signature">Signature</h3><p class="package-tagline">Experiența completă Bar Philosophy.</p><p class="package-description">Mai mult decât cocktailuri. Un bar care devine parte din eveniment.</p><div class="package-pricing"><p class="package-price-label">Preț pentru evenimentele din 2027</p><p><strong>36–38 lei / persoană</strong><span>Pentru evenimente de minimum 200 de persoane.</span></p><p><strong>6.500–7.000 lei</strong><span>Pentru evenimente sub 200 de persoane.</span></p><p>Prețul final se stabilește în funcție de configurația evenimentului și serviciile contractate.</p></div><a href="#contact" class="package-button" aria-label="Cere ofertă pentru Signature">Cere ofertă Signature</a><details class="package-details"><summary>Descoperă experiența</summary><div class="package-details-body"><p>Acesta este pachetul nostru principal, conceput pentru evenimentele în care profesionalismul, atmosfera și spectacolul trebuie să se întâlnească la același bar.</p><p>De la primul cocktail până la momentele de show, echipa Bar Philosophy transformă serviciul de bar mobil într-o experiență de care invitații își amintesc.</p></div></details><details class="package-details"><summary>Ce include pachetul?</summary><div class="package-details-body"><h4>Professional Cocktail Menu</h4><ul class="package-features"><li>Selecție variată de cocktailuri.</li><li>Ingrediente atent selecționate și siropuri de calitate.</li><li>Rețete clasice și combinații moderne.</li><li>Consultanță pentru construirea meniului potrivit evenimentului.</li></ul><h4>Flair Bartending Show</h4><ul class="package-features"><li>Momente spectaculoase de flair bartending.</li><li>Tehnici de lucru și prezentare care transformă barul într-un punct de atracție.</li><li>Energie, interacțiune și divertisment.</li></ul><h4>Ring Pour Experience</h4><ul class="package-features"><li>Un moment special realizat de echipa noastră.</li><li>Servire spectaculoasă și interacțiune cu invitații.</li><li>Un concept care aduce barul în mijlocul petrecerii, în condițiile potrivite locației.</li></ul><h4>Professional Mobile Bar</h4><ul class="package-features"><li>Bar mobil complet echipat.</li><li>Echipamente și ustensile profesionale.</li><li>Transport, montaj și demontaj.</li><li>Coordonare logistică pentru desfășurarea serviciului.</li></ul><h4>Visual Experience</h4><ul class="package-features"><li>Elemente vizuale incluse în configurația standard a pachetului.</li><li>Prezentare atentă a barului.</li><li>Decor standard adaptat evenimentului.</li></ul><h4>Personalized Consulting</h4><ul class="package-features"><li>Recomandări pentru alegerea cocktailurilor.</li><li>Consultanță privind organizarea serviciului.</li><li>Coordonarea momentelor de show.</li></ul></div></details><details class="package-details"><summary>Pentru cine este potrivit?</summary><div class="package-details-body"><p>Pentru nunți, evenimente corporate și petreceri private în care un simplu bar nu este suficient.</p><p>Pentru cei care își doresc cocktailuri profesionale, un show autentic și o echipă care știe să transforme servirea într-o experiență.</p></div></details><details class="package-details"><summary>Avantajul PPP Distribution</summary><div class="package-details-body"><p>Prin propria noastră companie de distribuție, PPP Distribution, putem asigura și aprovizionarea cu băuturi pentru eveniment.</p><p>În funcție de produsele alese și de condițiile agreate, poți beneficia de prețuri competitive și de posibilitatea returului produselor neconsumate.</p></div></details><details class="package-details"><summary>Servicii opționale</summary><div class="package-details-body"><p>Servicii opționale: tortul mirelui, design personalizat al barului, decor tematic și efecte speciale suplimentare.</p></div></details><p class="package-signature"><span>Bar Philosophy</span>We put ART in bARTending.</p></article>
+<article class="package-card" id="package-iconic" aria-labelledby="title-iconic">
+<p class="package-tier">Bar Philosophy</p><h3 id="title-iconic">Iconic</h3><p class="package-tagline">The Art of Exceptional Cocktails.</p><p class="package-description">Pentru evenimentele în care detaliile fac diferența.</p><div class="package-pricing"><p class="package-price-label">Preț</p><p><strong>Ofertă personalizată</strong></p><p>Ofertă personalizată pentru fiecare eveniment.</p><p>Prețul se stabilește în funcție de numărul invitaților, selecția de băuturi premium, meniul de cocktailuri, personalizarea conceptului și serviciile solicitate.</p></div><a href="#contact" class="package-button" aria-label="Cere ofertă pentru Iconic">Cere ofertă Iconic</a><details class="package-details"><summary>Descoperă experiența</summary><div class="package-details-body"><p>Există evenimente la care un cocktail trebuie să fie mai mult decât o băutură.</p><p>Trebuie să aibă personalitate. Să arate impecabil. Să surprindă prin gust și să completeze atmosfera evenimentului.</p><p>Bar Philosophy Iconic este experiența noastră ultra-premium, creată pentru clienții care caută exclusivitate, ingrediente deosebite și un concept de bar construit în jurul evenimentului lor.</p></div></details><details class="package-details"><summary>Ce include pachetul?</summary><div class="package-details-body"><h4>Premium Spirits Selection</h4><ul class="package-features"><li>Selecție de băuturi spirtoase premium.</li><li>Branduri și produse stabilite împreună cu organizatorul.</li><li>Recomandări de asociere a băuturilor cu meniul de cocktailuri.</li></ul><h4>Signature Cocktail Experience</h4><ul class="package-features"><li>Meniu personalizat de cocktailuri.</li><li>Cocktailuri signature create special pentru eveniment.</li><li>Cordialuri, siropuri artizanale și ingrediente atent selecționate.</li><li>Garnituri și prezentări care pun în valoare fiecare cocktail.</li></ul><h4>Exclusive Mobile Bar</h4><ul class="package-features"><li>Bar mobil amenajat pentru o prezentare premium.</li><li>Expunere atent organizată a băuturilor și ingredientelor.</li><li>Meniu personalizat pentru invitați.</li><li>Elemente vizuale adaptate conceptului evenimentului.</li></ul><h4>Iconic Bartending Show</h4><ul class="package-features"><li>Show profesional de flair bartending.</li><li>Ring Pour Experience.</li><li>Momente artistice planificate în funcție de programul evenimentului.</li><li>Elemente vizuale speciale, stabilite în prealabil.</li></ul><h4>Bespoke Cocktail Design</h4><ul class="package-features"><li>Consultanță individuală pentru conceperea meniului.</li><li>Alegerea profilurilor aromatice.</li><li>Posibilitatea creării unor cocktailuri inspirate de povestea mirilor, locație sau tematica evenimentului.</li><li>Recomandări pentru prezentarea și servirea cocktailurilor.</li></ul><h4>Premium Event Logistics</h4><ul class="package-features"><li>Planificarea necesarului de băuturi.</li><li>Organizarea transportului și montajului.</li><li>Coordonarea serviciului cu organizatorii.</li><li>Soluții de aprovizionare prin PPP Distribution, în condițiile agreate.</li></ul></div></details><details class="package-details"><summary>Pentru cine este potrivit?</summary><div class="package-details-body"><p>Nunți premium și evenimente exclusiviste.</p><p>Evenimente corporate de prestigiu.</p><p>Lansări de produse și evenimente de brand.</p><p>Petreceri private în care fiecare detaliu contează.</p></div></details><details class="package-details"><summary>Filosofia Iconic</summary><div class="package-details-body"><p>La Bar Philosophy Iconic nu alegem doar băuturi mai scumpe. Construim o experiență coerentă, în care ingredientele, tehnica, prezentarea și spectacolul au un scop comun.</p></div></details><p class="package-signature"><span>Bar Philosophy</span>Not just a bar. An experience.</p></article>
+</div>
 </section>
 
 <section class="about" id="despre-noi">
@@ -691,6 +672,8 @@ Shot-uri interactive, cocktail-uri spectaculoase și energie care aduce oamenii 
         </div>
 
       </div>
+    </div>
+  </div>
     </section>
 
     <section class="contact" id="contact">
@@ -802,12 +785,13 @@ Shot-uri interactive, cocktail-uri spectaculoase și energie care aduce oamenii 
 
        
 
+    </div>
 </section>
 
   </main>
   <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
+  <script src="js/intro.js"></script>
   <script src="js/script.js"></script>
-</body>
 <footer class="footer">
 
     <div class="footer-container">
@@ -879,4 +863,5 @@ Shot-uri interactive, cocktail-uri spectaculoase și energie care aduce oamenii 
     </div>
 
 </footer>
+</body>
 </html>
